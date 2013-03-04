@@ -5,5 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="silence">Silence!</string>
     <string name="full_volume">Full Volume</string>
+    <string name="no_sync">No Sync</string>
+    <string name="silent">Silent</string>
 
 </resources>
