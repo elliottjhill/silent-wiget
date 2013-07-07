@@ -12,10 +12,10 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/silence"
-	        android:id="@+id/widget_silence" />
+	        android:id="@+id/widget_volume" />
 	    <Button
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/full_volume"
-	        android:id="@+id/widget_loud" />
+	        android:id="@+id/widget_sync" />
 </GridLayout>

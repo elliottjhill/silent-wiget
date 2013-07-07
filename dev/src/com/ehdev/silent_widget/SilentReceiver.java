@@ -12,21 +12,17 @@ import android.media.AudioManager;
  *
  */
 public class SilentReceiver extends BroadcastReceiver {
-	/** Action to be used when attempting to silence the phone */
-	public static final String SILENT_ACTION = "silent";
-	/** Action to be used when attempting to unsilence the phone */
-	public static final String LOUD_ACTION = "loud";
+	/** Action to be used when attempting to silence or volumise the phone */
+	public static final String SILENT_ACTION = "volume-action";
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		if (intent.getAction().equals(SILENT_ACTION)) {
-			 AudioManager audioMan = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-			 audioMan.setRingerMode(AudioManager.RINGER_MODE_SILENT);	
-		} else if (intent.getAction().equals(LOUD_ACTION)) {
-			 AudioManager audioMan = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+		 AudioManager audioMan = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+		 if (audioMan.getRingerMode() == AudioManager.RINGER_MODE_SILENT) {
 			 audioMan.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-		}
-		
+		 } else {
+			 audioMan.setRingerMode(AudioManager.RINGER_MODE_SILENT); 
+		 }
 	}
 
 }

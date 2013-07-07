@@ -13,12 +13,12 @@
 	        android:text="@string/silence" />
 	    
 	    <Button android:text="@string/silence"
-	        	android:id="@+id/silent_button"
+	        	android:id="@+id/volume"
 	        	android:layout_width="wrap_content"
 	    		android:layout_height="wrap_content"/>
 	    
 	    <Button android:text="@string/full_volume"
-	        	android:id="@+id/full_volume"
+	        	android:id="@+id/sync"
 	        	android:layout_width="wrap_content"
 	    		android:layout_height="wrap_content"/>
 

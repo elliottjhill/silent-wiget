@@ -25,17 +25,16 @@ public class SilentWidget extends AppWidgetProvider {
                    
             // Create silent pending intent
             Intent intent = new Intent();
-            intent.setAction(SilentReceiver.LOUD_ACTION);
-            intent.setClassName(SilentReceiver.class.getPackage().getName(), SilentReceiver.class.getName());
-
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context.getApplicationContext(), 0, intent, 
             		PendingIntent.FLAG_CANCEL_CURRENT);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_silence_phone);
+            intent.setAction(SyncReceiver.SYNC_ACTION);
+            intent.setClassName(SyncReceiver.class.getPackage().getName(), SyncReceiver.class.getName());
 
-            
+           
             // Get the layout for the App Widget and attach an on-click listener
             // to the button
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_silence_phone);
-            views.setOnClickPendingIntent(R.id.widget_loud, pendingIntent);
+            views.setOnClickPendingIntent(R.id.widget_sync, pendingIntent);
             
             intent = new Intent();
             intent.setAction(SilentReceiver.SILENT_ACTION);
@@ -44,7 +43,7 @@ public class SilentWidget extends AppWidgetProvider {
             pendingIntent = PendingIntent.getBroadcast(context.getApplicationContext(), 0, intent,
             		PendingIntent.FLAG_CANCEL_CURRENT);
 
-            views.setOnClickPendingIntent(R.id.widget_silence, pendingIntent);
+            views.setOnClickPendingIntent(R.id.widget_volume, pendingIntent);
             // Tell the AppWidgetManager to perform an update on the current app widget
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
